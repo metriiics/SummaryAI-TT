@@ -54,7 +54,7 @@ graph TD
 2. vllm - движок llm
 3. lm-studio локальные тесты
 4. langfuse - трассировка
-5. Docling/Unstructured/python-docx - парсеры текста
+5. Docling - парсер
 6. fastapi
 7. sqlalchemy
 8. uv
