@@ -1,0 +1,59 @@
+from functools import lru_cache
+from docling.document_converter import DocumentConverter
+from pathlib import Path
+import os
+
+from schemas import Documents, DocMetadata
+
+class ParseDocs:
+    def __init__(self):
+        self.abs_path = Path.cwd() / "docs"
+
+        self.converter = DocumentConverter()
+
+    def detect_files(self, name_dir: str) -> list:
+        dir = self.abs_path / name_dir
+        if not dir.is_dir() or not dir.exists():
+            return f"[ERROR]This directory not found or not directory. {dir}"
+
+        files = []
+
+        for file in dir.rglob("*"):
+            if file.is_file():
+                files.append(file)
+
+        return files
+
+    def __clean_txt():
+        pass
+
+    def router(self, files: list):
+        parse_content = []
+
+        for file in files:
+            if not file.is_file():
+                continue
+
+            text = self.pars_docx_pdf(file)
+            doc = Documents(
+                name_docs=file.name,
+                content=text,
+                metadata=DocMetadata(
+                    file_type=file.suffix,
+                    length_char=len(text),
+                    length_word=len(text.split())
+                )
+            )
+            parse_content.append(doc)
+
+        return parse_content
+
+    def pars_docx_pdf(self, file):
+        result = self.converter.convert(file)
+        doc = result.document
+        markdown = doc.export_to_markdown()
+        
+        return markdown
+
+    def pars_xlsx(self):
+        pass
