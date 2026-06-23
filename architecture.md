@@ -1,7 +1,8 @@
 ### Архитектура
 ```mermaid
 graph TD
-    in[docs] --> pars[Parser-Docs]
+    in[docs] --> loader[DataLoader]
+    loader[DataLoader] --> pars[Parser-Docs]
 
     subgraph trace
         chunk[Chunking]
