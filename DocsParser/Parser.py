@@ -1,7 +1,6 @@
 from functools import lru_cache
 from docling.document_converter import DocumentConverter
 from pathlib import Path
-import os
 
 from schemas import Documents, DocMetadata
 
@@ -30,8 +29,15 @@ class ParseDocs:
 
         return files
 
-    def __clean_txt():
+    def _clean_txt():
         pass
+
+    def _check_file(self, file: str):
+        path = self.abs_path / file
+        if path.is_file():
+            return path
+        else:
+            return "Файл не найден или не существует"
 
     def router(self, files: list):
         parse_content = []
@@ -46,25 +52,28 @@ class ParseDocs:
                 continue
 
             content = parser(file)
-            doc = Documents(
-                name_docs=file.name,
-                content=content,
-                metadata=DocMetadata(
-                    file_type=file.suffix,
-                    length_char=len(content),
-                    length_word=len(content.split())
-                )
-            )
-            parse_content.append(doc)
+            parse_content.append(content)
 
         return parse_content
 
-    def pars_docx_pdf(self, file):
-        result = self.converter.convert(file)
+    def pars_docx_pdf(self, file: str):
+        path = self._check_file(file)
+
+        result = self.converter.convert(path)
         doc = result.document
         markdown = doc.export_to_markdown()
         
-        return markdown
+        doc = Documents(
+            name_docs=path.name,
+            content=markdown,
+            metadata=DocMetadata(
+                file_type=path.suffix,
+                length_char=len(markdown),
+                length_word=len(markdown.split())
+            )
+        )
+
+        return doc
 
     def pars_xlsx(self, file):
         return "XLSX File - Wow!"
