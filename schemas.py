@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional
 
 class ChunkingMetadata(BaseModel):
@@ -51,3 +51,20 @@ class Documents(BaseModel):
                 "chunks": chunks
             }
         )
+    
+class Extract(BaseModel):
+    main_info: str = Field(description="")
+    resource: list[str] | str = Field(description="")
+
+class ExtractorInput(BaseModel):
+    content: str
+
+class Summarization(BaseModel):
+    detailed_content: str = Field(description="Подробное саммари")
+    short_content: str = Field(description="Краткая саммари")
+    resource: list[str] = Field(description="Источники")
+
+class State(BaseModel):
+    docs: list[Documents] 
+    extracts: Optional[list[Extract]] = None
+    summarization: Optional[Summarization] = None
