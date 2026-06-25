@@ -59,7 +59,7 @@ def extract_node(state: State) -> dict:
             for item in contents
         ],
         config={
-            "max_concurrency": 4
+            "max_concurrency": 10
         }
     )
 

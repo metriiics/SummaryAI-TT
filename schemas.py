@@ -4,6 +4,7 @@ from typing import Optional
 class ChunkingMetadata(BaseModel):
     length_char: int
     length_word: int
+    predicted_number_tokens: float
     chunk: int
 
 class ChunkingDocuments(BaseModel):
@@ -23,6 +24,7 @@ class ChunkingDocuments(BaseModel):
             metadata=ChunkingMetadata(
                 length_char=len_char,
                 length_word=len_word,
+                predicted_number_tokens=len_word * 2.25,
                 chunk=num_chunk
             )
         )
@@ -31,6 +33,7 @@ class DocMetadata(BaseModel):
     file_type: str
     length_char: int
     length_word: int
+    predicted_number_tokens: float
 
 class Documents(BaseModel):
     name_docs: str
