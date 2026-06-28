@@ -33,14 +33,14 @@ def form_input_extract_node(docs: list[Documents]) -> list[ExtractorInput]:
     
     for doc in docs:
         if doc.is_chunked:
-            for chunk in doc.chunks:
+            for idx, chunk in enumerate(doc.chunks):
                 input = ExtractorInput(
-                    content=f"Информация взята из документа под названием - {doc.name_docs}\n\nИнформация: {chunk.content}"
+                    content=f"Информация взята из разделенного документа под названием - {doc.name_docs} деление номер - {idx}\n\nИнформация: {chunk.content}"
                 )
                 form.append(input)
         else:
             input = ExtractorInput(
-                content=f"Информация взята из документа под названием - {doc.name_docs}\n\nИнформация: {chunk.content}"
+                content=f"Информация взята из документа под названием - {doc.name_docs}\n\nИнформация: {doc.content}"
             )
             form.append(input)
     return form
@@ -107,7 +107,6 @@ def from_input_summary_node(merge_extract: MergedExtract) -> str:
 
 async def extract_node(state: State) -> dict:
     """ Нода, извлекающая ключевую информацию """
-    
     contents = form_input_extract_node(state.docs)
 
     responses = await extract_structured_llm.abatch(

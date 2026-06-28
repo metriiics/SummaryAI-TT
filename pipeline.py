@@ -4,10 +4,10 @@ from DocsParser.Parser import ParseDocs
 from WorkflowAI.route import ask_ai
 
 parse = ParseDocs()
-chunking = Chunked(chunk_size=50000, max_size_tokens=50000)
+chunking = Chunked(chunk_size=50_000, max_size_tokens=50_000)
 
-async def pipe():
-    text = parse.router("RN12390")
+async def pipe(name_dir: str):
+    text = parse.router(name_dir)
 
     chunks = chunking.markdown_header_chunking(text)
     

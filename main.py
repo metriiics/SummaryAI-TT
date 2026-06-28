@@ -8,9 +8,12 @@ from WorkflowAI.route import ask_ai
 
 app = FastAPI()
 
+class GenerateInput(BaseModel):
+    folder_name: str
+
 @app.post("/v1/generate", response_model=Summarization)
-async def generate():
-    result = await pipe()
+async def generate(folder: GenerateInput):
+    result = await pipe(folder.folder_name)
     return result
 
 @app.post("/v1/test", response_model=list[Documents])
