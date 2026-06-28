@@ -9,11 +9,12 @@ from WorkflowAI.route import ask_ai
 app = FastAPI()
 
 @app.post("/v1/generate", response_model=Summarization)
-def generate():
-    return pipe()
+async def generate():
+    result = await pipe()
+    return result
 
 @app.post("/v1/test", response_model=list[Documents])
-def generate():
+def generate_test():
     return pipe_test_pars()
 
 if __name__ == "__main__":

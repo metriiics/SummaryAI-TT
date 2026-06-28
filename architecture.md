@@ -8,7 +8,7 @@ graph TD
         chunk[Chunking]
         extract[Extract-Node]
         AggAg[Agg-Node]
-        out[Краткое/Подробное Summary]
+        out[Summary]
 
         chunk --> extract
         extract --> AggAg
@@ -52,17 +52,15 @@ graph TD
 
 ### Инструментарий
 1. langchain/langgraph
-2. vllm - движок llm
+2. llama.cpp - движок llm
 3. lm-studio локальные тесты
 4. langfuse - трассировка
 5. Docling - парсер
-6. fastapi
+6. fastapi - отладка
 7. sqlalchemy
-8. uv
-9. python
-10. docker
-11. postgres
-12. tuna
+8. python
+9. docker
+10. postgres
 
 ### LLM
 qwen
