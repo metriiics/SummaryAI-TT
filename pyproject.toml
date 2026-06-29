@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "alembic>=1.18.5",
     "docling>=2.104.0",
     "fastapi>=0.138.0",
     "langchain>=1.3.10",
@@ -12,6 +13,8 @@ dependencies = [
     "langchain-openai>=1.3.3",
     "langchain-text-splitters>=1.1.2",
     "openpyxl>=3.1.5",
+    "psycopg>=3.3.4",
+    "sqlalchemy>=2.0.51",
     "typing>=3.10.0.0",
     "uvicorn>=0.49.0",
 ]

@@ -1,6 +1,6 @@
 from langgraph.graph import StateGraph, END
 
-from WorkflowAI.models import extract_node, summary_node
+from WorkflowAI.nodes import extract_node, summary_node
 from schemas import Documents, State
 
 from dotenv import load_dotenv
