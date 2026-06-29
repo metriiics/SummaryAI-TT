@@ -1,8 +1,23 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter, MarkdownHeaderTextSplitter
+from typing import Optional
 
-from schemas import Documents, DocMetadata, ChunkingDocuments, ChunkingMetadata
+from schemas import Documents, ChunkingDocuments
 
 class Chunked:
+    """ 
+        Класс реализует алгоритм чанкирования больших документов.
+
+        Реализует две стратегии разбиения:
+            1. Рекурсивное разбиение по тексту (RecursiveCharacterTextSplitter)
+            2. Разбиение по заголовкам Markdown (MarkdownHeaderTextSplitter)
+
+        Автоматическое определение чанкирования на основе максимального количества токенов(max_size_tokens)
+        Автоматический выбор подходящего уровня заголовка для оптимального деления без потери смысла 
+        Стратегия необходимости чанкирования реализуется:
+            - Если найден оптимальный заголовок Markdown производится чанкирование на основе заголовка
+            - Иначе производится рекурсивное чанкирование
+                
+    """
     def __init__(self, chunk_size: int, overlap: int = 0, max_size_tokens: int = 5000):
         self.header = [
             ("#", "Header1"),
@@ -22,10 +37,12 @@ class Chunked:
             chunk_overlap=self.overlap
         )
 
-    def _need_chunking(self, doc: Documents):
+    def _need_chunking(self, doc: Documents) -> bool:
+        """ Проверка необходимости чанкирования документа """
         return doc.metadata.predicted_number_tokens >= self.max_size_tokens
 
-    def _smart_splitter_sheme(self, doc: Documents):
+    def _smart_splitter_sheme(self, doc: Documents) -> Optional[tuple[str, str]]:
+        """ Определяет оптимальный уровень заголовков(H1 - H6) для разбиения документа. """
         text = doc.content
 
         for head in self.header:
@@ -40,7 +57,8 @@ class Chunked:
                 return head
         return None
     
-    def _build_chunks(self, chunks):
+    def _build_chunks(self, chunks) -> list[ChunkingDocuments]:
+        """ Создание структурированных объектов чанков из списка текстовых фрагментов """
         chunk_list: list = []
         for idx, chunk in enumerate(chunks):
             chunk_doc = ChunkingDocuments.adding(
@@ -53,27 +71,16 @@ class Chunked:
 
         return chunk_list
 
-    def _markdown_chunking(self, docs: list[Documents]):
-        chunks_docs: list = []
-
-        for doc in docs:
-            status_chunking = self._need_chunking(doc)
-            
-            if not status_chunking:
-                doc = doc.set_chunk(status_chunking, None)
-                chunks_docs.append(doc)
-                continue
-            
-            chunks = self.splitter_by_text.split_text(doc.content)
-
-            chunk_list = self._build_chunks(chunks)
-            
-            doc = doc.set_chunk(status_chunking, chunk_list)
-            chunks_docs.append(doc)
-
-        return chunks_docs
-
-    def markdown_header_chunking(self, docs: list[Documents]):
+    def markdown_header_chunking(self, docs: list[Documents]) -> list[Documents]:
+        """ 
+            Основной метод для "умного" разбиения документов с учетом заголовков.
+        
+            Реализует стратегию:
+                1. Если документ не превышает лимит - оставляет без изменений
+                2. Если превышает - пытается найти оптимальный уровень заголовков
+                3. При успешном поиске - разбивает по заголовкам
+                4. При неудаче - использует рекурсивное разбиение по тексту
+        """
         chunks_docs: list = []
         
         for doc in docs:

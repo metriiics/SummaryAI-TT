@@ -1,6 +1,7 @@
 from functools import lru_cache
 from docling.document_converter import DocumentConverter
 from pathlib import Path
+from typing import Union
 
 import re
 
@@ -11,8 +12,15 @@ from schemas import Documents, DocMetadata
 
 class ParseDocs:
     """
-        Класс для поддержки парсинга документов:
-            doc, docx, xlsx, xls, pdf
+        Класс для парсинга и извлечения текстового содержимого из различных форматов документов.
+        Поддерживаемые форматы: .doc, .docx, .xlsx, .xls, .pdf
+
+        Осуществляется поддержка парсинга за счет:
+            - docling: текстовые документы
+            - openpyxl: табличные данные
+
+        После извлечения информации производится конвертация в структурированный формат(markdown для текстовых данных)
+        
     """
     def __init__(self):
         self.name_home_dir = "temp"
@@ -31,24 +39,25 @@ class ParseDocs:
         self.coef_tokens = 2.25
         self.PLACEHOLDER_RE = re.compile(r"^\{.*\}$")
     
-    def _exist_home_dir(self):
+    def _exist_home_dir(self) -> None:
+        """ Создание временной директории """
         if not self.abs_path.exists():
             self.abs_path.mkdir()
 
-    def _clean_txt(self):
-        pass
-
     def _clean_xls(self, value) -> str:
+        """ Очистка строкового значения из Excel таблицы """
         return " ".join(str(value).split()) if value is not None else ""
 
-    def _check_file(self, file: str):
+    def _check_file(self, file: str) -> Union[Path, str]:
+        """ Проверка существования файла во временной директории """
         path = self.abs_path / file
         if path.is_file():
             return path
         else:
             return "Файл не найден или не существует"
 
-    def _detect_files(self, name_dir: str) -> list:
+    def _detect_files(self, name_dir: str) -> Union[list[Path], str]:
+        """ Обнаруживаем все файлы в указанной поддиректории временной папки """
         self._exist_home_dir()
 
         dir = self.abs_path / name_dir
@@ -63,7 +72,8 @@ class ParseDocs:
 
         return files
 
-    def router(self, name_dir: str):
+    def router(self, name_dir: str) -> list[Documents]:
+        """ Основной метод маршрутизации для парсинга всех документов в директории """
         parse_content = []
         files = self._detect_files(name_dir)
 
@@ -81,7 +91,8 @@ class ParseDocs:
 
         return parse_content
 
-    def _parsing_docx_doc_pdf(self, file: str):
+    def _parsing_docx_doc_pdf(self, file: str) -> Documents:
+        """ Парсинг документов (DOC, DOCX, PDF) с преобразованием в markdown формат. """
         path = self._check_file(file)
 
         result = self.converter.convert(path)
@@ -101,7 +112,8 @@ class ParseDocs:
 
         return doc
 
-    def _parsing_xlsx(self, file: str):
+    def _parsing_xlsx(self, file: str) -> Documents:
+        """ Парсинг табличных документов (XLSX, XLS) с извлечением структурной информации """
         path = self._check_file(file)
 
         wb = load_workbook(path, data_only=True)

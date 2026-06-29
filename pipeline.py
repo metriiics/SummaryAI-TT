@@ -1,5 +1,5 @@
-from DocsParser.Chunking import Chunked
-from DocsParser.Parser import ParseDocs
+from PreProcessingDocs.Chunking import Chunked
+from PreProcessingDocs.Parser import ParseDocs
 
 from WorkflowAI.route import ask_ai
 
