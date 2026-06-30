@@ -1,0 +1,832 @@
+[31m30-06-2026 23:22:45[0m | ERROR | PreProcessingDocs.Parser:111 | Failed to parse file: D:\Programs\PythonProjects\SummaryAI-TT\temp\0360300129925000099\Приложение_№_1_Описание_объекта_закупки_1.doc | File format not allowed: D:\Programs\PythonProjects\SummaryAI-TT\temp\0360300129925000099\Приложение_№_1_Описание_объекта_закупки_1.doc
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\[0m[32m[1mmain.py[0m", line [33m21[0m, in [35m<module>[0m
+    [1muvicorn[0m[35m[1m.[0m[1mrun[0m[1m([0m
+    [36m│       └ [0m[36m[1m<function run at 0x0000017C87B44C20>[0m
+    [36m└ [0m[36m[1m<module 'uvicorn' from 'D:\\Programs\\PythonProjects\\SummaryAI-TT\\.venv\\Lib\\site-packages\\uvicorn\\__init__.py'>[0m
+
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\main.py", line 620, in run
+    server.run()
+    │      └ <function Server.run at 0x0000017C87B45120>
+    └ <uvicorn.server.Server object at 0x0000017CCE8C5010>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x0000017C87B253A0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x0000017CCE8C4AD0>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x0000017CCE8C5010>
+           │           │    │             └ None
+           │           │    └ <function Server.serve at 0x0000017C87B451C0>
+           │           └ <uvicorn.server.Server object at 0x0000017CCE8C5010>
+           └ <function run at 0x0000017C87875B20>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x0000017CCE8AF5A0>
+           │      └ <function Runner.run at 0x0000017C879371A0>
+           └ <asyncio.runners.Runner object at 0x0000017CCE8C52B0>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\u...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000017C87934C20>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000017CCE8C52B0>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000017C87934B80>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000017C87936980>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py", line 2061, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000017C878B4400>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000017CCE9222F0>()>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000017CCE9222F0>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000017CCE9222F0>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000017CCE9222F0>()>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 415, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x0000017CCE8C63C0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 62, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FDE50>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x0000017C879D7D90>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x0000017CCE8C63C0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FDE50>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FDE50>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x0000017CCE8C78C0>
+          └ <fastapi.applications.FastAPI object at 0x0000017C879D7D90>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x0000017CCE907F60>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x0000017CCE8C7770>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x0000017CCE8C78C0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x0000017CCE907F60>
+          │                            │    │    │     │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    │    └ <starlette.requests.Request object at 0x0000017CCE872520>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x0000017CCE8C7620>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x0000017CCE8C7770>
+          └ <function wrap_app_handling_exceptions at 0x0000017C877B2980>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x0000017CCE8C7620>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x0000017CCE870510>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x0000017CCE8C7620>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <bound method APIRouter.app of <fastapi.routing.APIRouter object at 0x0000017CCE870510>>
+          └ <fastapi.routing.APIRouter object at 0x0000017CCE870510>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 2531, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function APIRoute.handle at 0x0000017C877DB420>
+          └ APIRoute(path='/v1/generate', name='generate', methods=['POST'])
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 1241, in handle
+    await super().handle(scope, receive, send)
+                         │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+                         │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+                         └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <function request_response.<locals>.app at 0x0000017CCE89DC60>
+          └ APIRoute(path='/v1/generate', name='generate', methods=['POST'])
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 150, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+          │                            │    │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    └ <starlette.requests.Request object at 0x0000017CCE8DC830>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x0000017CCE910A40>
+          └ <function wrap_app_handling_exceptions at 0x0000017C877B2980>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE910EA0>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <function request_response.<locals>.app.<locals>.app at 0x0000017CCE910A40>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 136, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x0000017CCE8DC830>
+                     └ <function get_request_handler.<locals>.app at 0x0000017CCE89DDA0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 690, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x0000017C877DA980>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 344, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'folder': GenerateInput(folder_name='0360300129925000099')}
+                 │         └ <function generate at 0x0000017CCE89D760>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[ModelField(field_info=Body(Pydant...
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\[0m[32m[1mmain.py[0m", line [33m17[0m, in [35mgenerate[0m
+    [1mresult[0m [35m[1m=[0m [35m[1mawait[0m [1mpipe[0m[1m([0m[1mfolder[0m[35m[1m.[0m[1mfolder_name[0m[1m)[0m
+    [36m               │    │      └ [0m[36m[1m'0360300129925000099'[0m
+    [36m               │    └ [0m[36m[1mGenerateInput(folder_name='0360300129925000099')[0m
+    [36m               └ [0m[36m[1m<function pipe at 0x0000017CCE847420>[0m
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\[0m[32m[1mpipeline.py[0m", line [33m17[0m, in [35mpipe[0m
+    [1mtext[0m [35m[1m=[0m [1mparse[0m[35m[1m.[0m[1mrouter[0m[1m([0m[1mname_dir[0m[1m)[0m
+    [36m       │     │      └ [0m[36m[1m'0360300129925000099'[0m
+    [36m       │     └ [0m[36m[1m<function ParseDocs.router at 0x0000017CC9BA2C00>[0m
+    [36m       └ [0m[36m[1m<PreProcessingDocs.Parser.ParseDocs object at 0x0000017CC9A9F4D0>[0m
+
+> File "[32mD:\Programs\PythonProjects\SummaryAI-TT\PreProcessingDocs\[0m[32m[1mParser.py[0m", line [33m108[0m, in [35mrouter[0m
+    [1mcontent[0m [35m[1m=[0m [1mparser[0m[1m([0m[1mfile[0m[1m)[0m
+    [36m          │      └ [0m[36m[1mWindowsPath('D:/Programs/PythonProjects/SummaryAI-TT/temp/0360300129925000099/Приложение_№_1_Описание_объекта_закупки_1.doc')[0m
+    [36m          └ [0m[36m[1m<bound method ParseDocs._parsing_docx_doc_pdf of <PreProcessingDocs.Parser.ParseDocs object at 0x0000017CC9A9F4D0>>[0m
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\PreProcessingDocs\[0m[32m[1mParser.py[0m", line [33m119[0m, in [35m_parsing_docx_doc_pdf[0m
+    [1mresult[0m [35m[1m=[0m [1mself[0m[35m[1m.[0m[1mconverter[0m[35m[1m.[0m[1mconvert[0m[1m([0m[1mpath[0m[1m)[0m
+    [36m         │    │         │       └ [0m[36m[1mWindowsPath('D:/Programs/PythonProjects/SummaryAI-TT/temp/0360300129925000099/Приложение_№_1_Описание_объекта_закупки_1.doc')[0m
+    [36m         │    │         └ [0m[36m[1m<function DocumentConverter.convert at 0x0000017CC9B33420>[0m
+    [36m         │    └ [0m[36m[1m<docling.document_converter.DocumentConverter object at 0x0000017CCE73FB60>[0m
+    [36m         └ [0m[36m[1m<PreProcessingDocs.Parser.ParseDocs object at 0x0000017CC9A9F4D0>[0m
+
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 40, in wrapper_function
+    return wrapper(*args, **kwargs)
+           │        │       └ {}
+           │        └ (<docling.document_converter.DocumentConverter object at 0x0000017CCE73FB60>, WindowsPath('D:/Programs/PythonProjects/Summary...
+           └ <bound method ValidateCallWrapper.__call__ of <pydantic._internal._validate_call.ValidateCallWrapper object at 0x0000017CA04F...
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 137, in __call__
+    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+          │    │                                      │             │          │     └ {}
+          │    │                                      │             │          └ (<docling.document_converter.DocumentConverter object at 0x0000017CCE73FB60>, WindowsPath('D:/Programs/PythonProjects/Summary...
+          │    │                                      │             └ <class 'pydantic_core._pydantic_core.ArgsKwargs'>
+          │    │                                      └ <module 'pydantic_core' from 'D:\\Programs\\PythonProjects\\SummaryAI-TT\\.venv\\Lib\\site-packages\\pydantic_core\\__init__....
+          │    └ <member '__pydantic_validator__' of 'ValidateCallWrapper' objects>
+          └ <pydantic._internal._validate_call.ValidateCallWrapper object at 0x0000017CA04F6260>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 438, in convert
+    return next(all_res)
+                └ <generator object DocumentConverter.convert_all at 0x0000017CCE8EC9E0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 497, in convert_all
+    for conv_res in conv_res_iter:
+                    └ <generator object DocumentConverter._convert at 0x0000017CCE8736E0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 622, in _convert
+    for item in map(
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 673, in _process_document
+    raise ConversionError(error_message)
+          │               └ 'File format not allowed: D:\\Programs\\PythonProjects\\SummaryAI-TT\\temp\\0360300129925000099\\Приложение_№_1_Описание_объе...
+          └ <class 'docling.exceptions.ConversionError'>
+
+[31m[1mdocling.exceptions.ConversionError[0m:[1m File format not allowed: D:\Programs\PythonProjects\SummaryAI-TT\temp\0360300129925000099\Приложение_№_1_Описание_объекта_закупки_1.doc[0m
+[31m30-06-2026 23:22:47[0m | ERROR | PreProcessingDocs.Parser:111 | Failed to parse file: D:\Programs\PythonProjects\SummaryAI-TT\temp\0360300129925000099\ПРИЛОЖЕНИЕ_№_4_Проект_контракта_1.doc | File format not allowed: D:\Programs\PythonProjects\SummaryAI-TT\temp\0360300129925000099\ПРИЛОЖЕНИЕ_№_4_Проект_контракта_1.doc
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\[0m[32m[1mmain.py[0m", line [33m21[0m, in [35m<module>[0m
+    [1muvicorn[0m[35m[1m.[0m[1mrun[0m[1m([0m
+    [36m│       └ [0m[36m[1m<function run at 0x0000017C87B44C20>[0m
+    [36m└ [0m[36m[1m<module 'uvicorn' from 'D:\\Programs\\PythonProjects\\SummaryAI-TT\\.venv\\Lib\\site-packages\\uvicorn\\__init__.py'>[0m
+
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\main.py", line 620, in run
+    server.run()
+    │      └ <function Server.run at 0x0000017C87B45120>
+    └ <uvicorn.server.Server object at 0x0000017CCE8C5010>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x0000017C87B253A0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x0000017CCE8C4AD0>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x0000017CCE8C5010>
+           │           │    │             └ None
+           │           │    └ <function Server.serve at 0x0000017C87B451C0>
+           │           └ <uvicorn.server.Server object at 0x0000017CCE8C5010>
+           └ <function run at 0x0000017C87875B20>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x0000017CCE8AF5A0>
+           │      └ <function Runner.run at 0x0000017C879371A0>
+           └ <asyncio.runners.Runner object at 0x0000017CCE8C52B0>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\u...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000017C87934C20>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x0000017CCE8C52B0>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000017C87934B80>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000017C87936980>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py", line 2061, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000017C878B4400>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000017CCE9222F0>()>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000017CCE9222F0>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000017CCE9222F0>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x0000017CCE9222F0>()>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 415, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x0000017CCE8C63C0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 62, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FDE50>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x0000017C879D7D90>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x0000017CCE8C63C0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FDE50>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FDE50>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x0000017CCE8C78C0>
+          └ <fastapi.applications.FastAPI object at 0x0000017C879D7D90>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x0000017CCE907F60>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x0000017CCE8C7770>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x0000017CCE8C78C0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x0000017CCE907F60>
+          │                            │    │    │     │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    │    └ <starlette.requests.Request object at 0x0000017CCE872520>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x0000017CCE8C7620>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x0000017CCE8C7770>
+          └ <function wrap_app_handling_exceptions at 0x0000017C877B2980>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x0000017CCE8C7620>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x0000017CCE870510>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x0000017CCE8C7620>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <bound method APIRouter.app of <fastapi.routing.APIRouter object at 0x0000017CCE870510>>
+          └ <fastapi.routing.APIRouter object at 0x0000017CCE870510>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 2531, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function APIRoute.handle at 0x0000017C877DB420>
+          └ APIRoute(path='/v1/generate', name='generate', methods=['POST'])
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 1241, in handle
+    await super().handle(scope, receive, send)
+                         │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+                         │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+                         └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <function request_response.<locals>.app at 0x0000017CCE89DC60>
+          └ APIRoute(path='/v1/generate', name='generate', methods=['POST'])
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 150, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE9109A0>
+          │                            │    │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    └ <starlette.requests.Request object at 0x0000017CCE8DC830>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x0000017CCE910A40>
+          └ <function wrap_app_handling_exceptions at 0x0000017C877B2980>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x0000017CCE910EA0>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000017CCE8FD...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <function request_response.<locals>.app.<locals>.app at 0x0000017CCE910A40>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 136, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x0000017CCE8DC830>
+                     └ <function get_request_handler.<locals>.app at 0x0000017CCE89DDA0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 690, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x0000017C877DA980>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 344, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'folder': GenerateInput(folder_name='0360300129925000099')}
+                 │         └ <function generate at 0x0000017CCE89D760>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[ModelField(field_info=Body(Pydant...
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\[0m[32m[1mmain.py[0m", line [33m17[0m, in [35mgenerate[0m
+    [1mresult[0m [35m[1m=[0m [35m[1mawait[0m [1mpipe[0m[1m([0m[1mfolder[0m[35m[1m.[0m[1mfolder_name[0m[1m)[0m
+    [36m               │    │      └ [0m[36m[1m'0360300129925000099'[0m
+    [36m               │    └ [0m[36m[1mGenerateInput(folder_name='0360300129925000099')[0m
+    [36m               └ [0m[36m[1m<function pipe at 0x0000017CCE847420>[0m
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\[0m[32m[1mpipeline.py[0m", line [33m17[0m, in [35mpipe[0m
+    [1mtext[0m [35m[1m=[0m [1mparse[0m[35m[1m.[0m[1mrouter[0m[1m([0m[1mname_dir[0m[1m)[0m
+    [36m       │     │      └ [0m[36m[1m'0360300129925000099'[0m
+    [36m       │     └ [0m[36m[1m<function ParseDocs.router at 0x0000017CC9BA2C00>[0m
+    [36m       └ [0m[36m[1m<PreProcessingDocs.Parser.ParseDocs object at 0x0000017CC9A9F4D0>[0m
+
+> File "[32mD:\Programs\PythonProjects\SummaryAI-TT\PreProcessingDocs\[0m[32m[1mParser.py[0m", line [33m108[0m, in [35mrouter[0m
+    [1mcontent[0m [35m[1m=[0m [1mparser[0m[1m([0m[1mfile[0m[1m)[0m
+    [36m          │      └ [0m[36m[1mWindowsPath('D:/Programs/PythonProjects/SummaryAI-TT/temp/0360300129925000099/ПРИЛОЖЕНИЕ_№_4_Проект_контракта_1.doc')[0m
+    [36m          └ [0m[36m[1m<bound method ParseDocs._parsing_docx_doc_pdf of <PreProcessingDocs.Parser.ParseDocs object at 0x0000017CC9A9F4D0>>[0m
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\PreProcessingDocs\[0m[32m[1mParser.py[0m", line [33m119[0m, in [35m_parsing_docx_doc_pdf[0m
+    [1mresult[0m [35m[1m=[0m [1mself[0m[35m[1m.[0m[1mconverter[0m[35m[1m.[0m[1mconvert[0m[1m([0m[1mpath[0m[1m)[0m
+    [36m         │    │         │       └ [0m[36m[1mWindowsPath('D:/Programs/PythonProjects/SummaryAI-TT/temp/0360300129925000099/ПРИЛОЖЕНИЕ_№_4_Проект_контракта_1.doc')[0m
+    [36m         │    │         └ [0m[36m[1m<function DocumentConverter.convert at 0x0000017CC9B33420>[0m
+    [36m         │    └ [0m[36m[1m<docling.document_converter.DocumentConverter object at 0x0000017CCE73FB60>[0m
+    [36m         └ [0m[36m[1m<PreProcessingDocs.Parser.ParseDocs object at 0x0000017CC9A9F4D0>[0m
+
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 40, in wrapper_function
+    return wrapper(*args, **kwargs)
+           │        │       └ {}
+           │        └ (<docling.document_converter.DocumentConverter object at 0x0000017CCE73FB60>, WindowsPath('D:/Programs/PythonProjects/Summary...
+           └ <bound method ValidateCallWrapper.__call__ of <pydantic._internal._validate_call.ValidateCallWrapper object at 0x0000017CA04F...
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 137, in __call__
+    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+          │    │                                      │             │          │     └ {}
+          │    │                                      │             │          └ (<docling.document_converter.DocumentConverter object at 0x0000017CCE73FB60>, WindowsPath('D:/Programs/PythonProjects/Summary...
+          │    │                                      │             └ <class 'pydantic_core._pydantic_core.ArgsKwargs'>
+          │    │                                      └ <module 'pydantic_core' from 'D:\\Programs\\PythonProjects\\SummaryAI-TT\\.venv\\Lib\\site-packages\\pydantic_core\\__init__....
+          │    └ <member '__pydantic_validator__' of 'ValidateCallWrapper' objects>
+          └ <pydantic._internal._validate_call.ValidateCallWrapper object at 0x0000017CA04F6260>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 438, in convert
+    return next(all_res)
+                └ <generator object DocumentConverter.convert_all at 0x0000017CCE8EFCC0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 497, in convert_all
+    for conv_res in conv_res_iter:
+                    └ <generator object DocumentConverter._convert at 0x0000017CCEB482A0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 622, in _convert
+    for item in map(
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 673, in _process_document
+    raise ConversionError(error_message)
+          │               └ 'File format not allowed: D:\\Programs\\PythonProjects\\SummaryAI-TT\\temp\\0360300129925000099\\ПРИЛОЖЕНИЕ_№_4_Проект_контра...
+          └ <class 'docling.exceptions.ConversionError'>
+
+[31m[1mdocling.exceptions.ConversionError[0m:[1m File format not allowed: D:\Programs\PythonProjects\SummaryAI-TT\temp\0360300129925000099\ПРИЛОЖЕНИЕ_№_4_Проект_контракта_1.doc[0m
+[31m30-06-2026 23:25:40[0m | ERROR | PreProcessingDocs.Parser:80 | Файл D:\Programs\PythonProjects\SummaryAI-TT\temp\ЗП507921\Извещение_о_запросе_ценновой_информаципо_ДВС.DOCX не поддерживается системой
+[31m[1mNoneType[0m:[1m None[0m
+[31m30-06-2026 23:25:40[0m | ERROR | PreProcessingDocs.Parser:84 | Файлов в директории D:\Programs\PythonProjects\SummaryAI-TT\temp\ЗП507921 не обнаружено
+[31m[1mNoneType[0m:[1m None[0m
+[31m30-06-2026 23:28:32[0m | ERROR | PreProcessingDocs.Parser:115 | Failed to parse file: D:\Programs\PythonProjects\SummaryAI-TT\temp\0360300129925000099\Приложение_№_1_Описание_объекта_закупки_1.doc | File format not allowed: D:\Programs\PythonProjects\SummaryAI-TT\temp\0360300129925000099\Приложение_№_1_Описание_объекта_закупки_1.doc
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\[0m[32m[1mmain.py[0m", line [33m21[0m, in [35m<module>[0m
+    [1muvicorn[0m[35m[1m.[0m[1mrun[0m[1m([0m
+    [36m│       └ [0m[36m[1m<function run at 0x000001B8284D4C20>[0m
+    [36m└ [0m[36m[1m<module 'uvicorn' from 'D:\\Programs\\PythonProjects\\SummaryAI-TT\\.venv\\Lib\\site-packages\\uvicorn\\__init__.py'>[0m
+
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\main.py", line 620, in run
+    server.run()
+    │      └ <function Server.run at 0x000001B8284D5120>
+    └ <uvicorn.server.Server object at 0x000001B86F295010>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x000001B8284A53A0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x000001B86F294AD0>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x000001B86F295010>
+           │           │    │             └ None
+           │           │    └ <function Server.serve at 0x000001B8284D51C0>
+           │           └ <uvicorn.server.Server object at 0x000001B86F295010>
+           └ <function run at 0x000001B8281C5B20>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x000001B86F285B60>
+           │      └ <function Runner.run at 0x000001B8282971A0>
+           └ <asyncio.runners.Runner object at 0x000001B86F2952B0>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\u...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x000001B828294C20>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x000001B86F2952B0>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x000001B828294B80>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000001B828296980>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py", line 2061, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000001B828204400>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x000001B86F2FD810>()>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x000001B86F2FD810>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x000001B86F2FD810>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x000001B86F2FD810>()>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 415, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x000001B86F2963C0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 62, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9810>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x000001B828337D90>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x000001B86F2963C0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9810>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9810>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x000001B86F2978C0>
+          └ <fastapi.applications.FastAPI object at 0x000001B828337D90>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x000001B86F2E0860>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x000001B86F297770>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x000001B86F2978C0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x000001B86F2E0860>
+          │                            │    │    │     │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    │    └ <starlette.requests.Request object at 0x000001B86F242520>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001B86F297620>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x000001B86F297770>
+          └ <function wrap_app_handling_exceptions at 0x000001B8280F2980>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001B86F297620>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x000001B86F240640>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001B86F297620>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <bound method APIRouter.app of <fastapi.routing.APIRouter object at 0x000001B86F240640>>
+          └ <fastapi.routing.APIRouter object at 0x000001B86F240640>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 2531, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function APIRoute.handle at 0x000001B82811B420>
+          └ APIRoute(path='/v1/generate', name='generate', methods=['POST'])
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 1241, in handle
+    await super().handle(scope, receive, send)
+                         │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+                         │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+                         └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <function request_response.<locals>.app at 0x000001B86F261DA0>
+          └ APIRoute(path='/v1/generate', name='generate', methods=['POST'])
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 150, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+          │                            │    │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    └ <starlette.requests.Request object at 0x000001B86F2A8B90>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x000001B86F2E0AE0>
+          └ <function wrap_app_handling_exceptions at 0x000001B8280F2980>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0CC0>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <function request_response.<locals>.app.<locals>.app at 0x000001B86F2E0AE0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 136, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x000001B86F2A8B90>
+                     └ <function get_request_handler.<locals>.app at 0x000001B86F261E40>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 690, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x000001B82811A980>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 344, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'folder': GenerateInput(folder_name='0360300129925000099')}
+                 │         └ <function generate at 0x000001B86F261800>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[ModelField(field_info=Body(Pydant...
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\[0m[32m[1mmain.py[0m", line [33m17[0m, in [35mgenerate[0m
+    [1mresult[0m [35m[1m=[0m [35m[1mawait[0m [1mpipe[0m[1m([0m[1mfolder[0m[35m[1m.[0m[1mfolder_name[0m[1m)[0m
+    [36m               │    │      └ [0m[36m[1m'0360300129925000099'[0m
+    [36m               │    └ [0m[36m[1mGenerateInput(folder_name='0360300129925000099')[0m
+    [36m               └ [0m[36m[1m<function pipe at 0x000001B86F2174C0>[0m
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\[0m[32m[1mpipeline.py[0m", line [33m17[0m, in [35mpipe[0m
+    [1mtext[0m [35m[1m=[0m [1mparse[0m[35m[1m.[0m[1mrouter[0m[1m([0m[1mname_dir[0m[1m)[0m
+    [36m       │     │      └ [0m[36m[1m'0360300129925000099'[0m
+    [36m       │     └ [0m[36m[1m<function ParseDocs.router at 0x000001B86A5B2CA0>[0m
+    [36m       └ [0m[36m[1m<PreProcessingDocs.Parser.ParseDocs object at 0x000001B86A4AF4D0>[0m
+
+> File "[32mD:\Programs\PythonProjects\SummaryAI-TT\PreProcessingDocs\[0m[32m[1mParser.py[0m", line [33m112[0m, in [35mrouter[0m
+    [1mcontent[0m [35m[1m=[0m [1mparser[0m[1m([0m[1mfile[0m[1m)[0m
+    [36m          │      └ [0m[36m[1mWindowsPath('D:/Programs/PythonProjects/SummaryAI-TT/temp/0360300129925000099/Приложение_№_1_Описание_объекта_закупки_1.doc')[0m
+    [36m          └ [0m[36m[1m<bound method ParseDocs._parsing_docx_doc_pdf of <PreProcessingDocs.Parser.ParseDocs object at 0x000001B86A4AF4D0>>[0m
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\PreProcessingDocs\[0m[32m[1mParser.py[0m", line [33m123[0m, in [35m_parsing_docx_doc_pdf[0m
+    [1mresult[0m [35m[1m=[0m [1mself[0m[35m[1m.[0m[1mconverter[0m[35m[1m.[0m[1mconvert[0m[1m([0m[1mpath[0m[1m)[0m
+    [36m         │    │         │       └ [0m[36m[1mWindowsPath('D:/Programs/PythonProjects/SummaryAI-TT/temp/0360300129925000099/Приложение_№_1_Описание_объекта_закупки_1.doc')[0m
+    [36m         │    │         └ [0m[36m[1m<function DocumentConverter.convert at 0x000001B86A54B4C0>[0m
+    [36m         │    └ [0m[36m[1m<docling.document_converter.DocumentConverter object at 0x000001B86F10FB60>[0m
+    [36m         └ [0m[36m[1m<PreProcessingDocs.Parser.ParseDocs object at 0x000001B86A4AF4D0>[0m
+
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 40, in wrapper_function
+    return wrapper(*args, **kwargs)
+           │        │       └ {}
+           │        └ (<docling.document_converter.DocumentConverter object at 0x000001B86F10FB60>, WindowsPath('D:/Programs/PythonProjects/Summary...
+           └ <bound method ValidateCallWrapper.__call__ of <pydantic._internal._validate_call.ValidateCallWrapper object at 0x000001B840EA...
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 137, in __call__
+    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+          │    │                                      │             │          │     └ {}
+          │    │                                      │             │          └ (<docling.document_converter.DocumentConverter object at 0x000001B86F10FB60>, WindowsPath('D:/Programs/PythonProjects/Summary...
+          │    │                                      │             └ <class 'pydantic_core._pydantic_core.ArgsKwargs'>
+          │    │                                      └ <module 'pydantic_core' from 'D:\\Programs\\PythonProjects\\SummaryAI-TT\\.venv\\Lib\\site-packages\\pydantic_core\\__init__....
+          │    └ <member '__pydantic_validator__' of 'ValidateCallWrapper' objects>
+          └ <pydantic._internal._validate_call.ValidateCallWrapper object at 0x000001B840EA61F0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 438, in convert
+    return next(all_res)
+                └ <generator object DocumentConverter.convert_all at 0x000001B86F2B89E0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 497, in convert_all
+    for conv_res in conv_res_iter:
+                    └ <generator object DocumentConverter._convert at 0x000001B86F243940>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 622, in _convert
+    for item in map(
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 673, in _process_document
+    raise ConversionError(error_message)
+          │               └ 'File format not allowed: D:\\Programs\\PythonProjects\\SummaryAI-TT\\temp\\0360300129925000099\\Приложение_№_1_Описание_объе...
+          └ <class 'docling.exceptions.ConversionError'>
+
+[31m[1mdocling.exceptions.ConversionError[0m:[1m File format not allowed: D:\Programs\PythonProjects\SummaryAI-TT\temp\0360300129925000099\Приложение_№_1_Описание_объекта_закупки_1.doc[0m
+[31m30-06-2026 23:28:33[0m | ERROR | PreProcessingDocs.Parser:115 | Failed to parse file: D:\Programs\PythonProjects\SummaryAI-TT\temp\0360300129925000099\ПРИЛОЖЕНИЕ_№_4_Проект_контракта_1.doc | File format not allowed: D:\Programs\PythonProjects\SummaryAI-TT\temp\0360300129925000099\ПРИЛОЖЕНИЕ_№_4_Проект_контракта_1.doc
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\[0m[32m[1mmain.py[0m", line [33m21[0m, in [35m<module>[0m
+    [1muvicorn[0m[35m[1m.[0m[1mrun[0m[1m([0m
+    [36m│       └ [0m[36m[1m<function run at 0x000001B8284D4C20>[0m
+    [36m└ [0m[36m[1m<module 'uvicorn' from 'D:\\Programs\\PythonProjects\\SummaryAI-TT\\.venv\\Lib\\site-packages\\uvicorn\\__init__.py'>[0m
+
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\main.py", line 620, in run
+    server.run()
+    │      └ <function Server.run at 0x000001B8284D5120>
+    └ <uvicorn.server.Server object at 0x000001B86F295010>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x000001B8284A53A0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x000001B86F294AD0>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x000001B86F295010>
+           │           │    │             └ None
+           │           │    └ <function Server.serve at 0x000001B8284D51C0>
+           │           └ <uvicorn.server.Server object at 0x000001B86F295010>
+           └ <function run at 0x000001B8281C5B20>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x000001B86F285B60>
+           │      └ <function Runner.run at 0x000001B8282971A0>
+           └ <asyncio.runners.Runner object at 0x000001B86F2952B0>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\u...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x000001B828294C20>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x000001B86F2952B0>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x000001B828294B80>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000001B828296980>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py", line 2061, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000001B828204400>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x000001B86F2FD810>()>
+  File "C:\Users\alexs\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x000001B86F2FD810>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x000001B86F2FD810>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x000001B86F2FD810>()>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 415, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x000001B86F2963C0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 62, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9810>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x000001B828337D90>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x000001B86F2963C0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9810>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9810>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x000001B86F2978C0>
+          └ <fastapi.applications.FastAPI object at 0x000001B828337D90>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x000001B86F2E0860>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x000001B86F297770>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x000001B86F2978C0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x000001B86F2E0860>
+          │                            │    │    │     │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    │    └ <starlette.requests.Request object at 0x000001B86F242520>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001B86F297620>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x000001B86F297770>
+          └ <function wrap_app_handling_exceptions at 0x000001B8280F2980>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001B86F297620>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x000001B86F240640>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001B86F297620>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <bound method APIRouter.app of <fastapi.routing.APIRouter object at 0x000001B86F240640>>
+          └ <fastapi.routing.APIRouter object at 0x000001B86F240640>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 2531, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function APIRoute.handle at 0x000001B82811B420>
+          └ APIRoute(path='/v1/generate', name='generate', methods=['POST'])
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 1241, in handle
+    await super().handle(scope, receive, send)
+                         │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+                         │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+                         └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <function request_response.<locals>.app at 0x000001B86F261DA0>
+          └ APIRoute(path='/v1/generate', name='generate', methods=['POST'])
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 150, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0A40>
+          │                            │    │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │                            │    └ <starlette.requests.Request object at 0x000001B86F2A8B90>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x000001B86F2E0AE0>
+          └ <function wrap_app_handling_exceptions at 0x000001B8280F2980>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x000001B86F2E0CC0>
+          │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x000001B86F2C9...
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          └ <function request_response.<locals>.app.<locals>.app at 0x000001B86F2E0AE0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 136, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x000001B86F2A8B90>
+                     └ <function get_request_handler.<locals>.app at 0x000001B86F261E40>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 690, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x000001B82811A980>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\fastapi\routing.py", line 344, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'folder': GenerateInput(folder_name='0360300129925000099')}
+                 │         └ <function generate at 0x000001B86F261800>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[ModelField(field_info=Body(Pydant...
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\[0m[32m[1mmain.py[0m", line [33m17[0m, in [35mgenerate[0m
+    [1mresult[0m [35m[1m=[0m [35m[1mawait[0m [1mpipe[0m[1m([0m[1mfolder[0m[35m[1m.[0m[1mfolder_name[0m[1m)[0m
+    [36m               │    │      └ [0m[36m[1m'0360300129925000099'[0m
+    [36m               │    └ [0m[36m[1mGenerateInput(folder_name='0360300129925000099')[0m
+    [36m               └ [0m[36m[1m<function pipe at 0x000001B86F2174C0>[0m
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\[0m[32m[1mpipeline.py[0m", line [33m17[0m, in [35mpipe[0m
+    [1mtext[0m [35m[1m=[0m [1mparse[0m[35m[1m.[0m[1mrouter[0m[1m([0m[1mname_dir[0m[1m)[0m
+    [36m       │     │      └ [0m[36m[1m'0360300129925000099'[0m
+    [36m       │     └ [0m[36m[1m<function ParseDocs.router at 0x000001B86A5B2CA0>[0m
+    [36m       └ [0m[36m[1m<PreProcessingDocs.Parser.ParseDocs object at 0x000001B86A4AF4D0>[0m
+
+> File "[32mD:\Programs\PythonProjects\SummaryAI-TT\PreProcessingDocs\[0m[32m[1mParser.py[0m", line [33m112[0m, in [35mrouter[0m
+    [1mcontent[0m [35m[1m=[0m [1mparser[0m[1m([0m[1mfile[0m[1m)[0m
+    [36m          │      └ [0m[36m[1mWindowsPath('D:/Programs/PythonProjects/SummaryAI-TT/temp/0360300129925000099/ПРИЛОЖЕНИЕ_№_4_Проект_контракта_1.doc')[0m
+    [36m          └ [0m[36m[1m<bound method ParseDocs._parsing_docx_doc_pdf of <PreProcessingDocs.Parser.ParseDocs object at 0x000001B86A4AF4D0>>[0m
+
+  File "[32mD:\Programs\PythonProjects\SummaryAI-TT\PreProcessingDocs\[0m[32m[1mParser.py[0m", line [33m123[0m, in [35m_parsing_docx_doc_pdf[0m
+    [1mresult[0m [35m[1m=[0m [1mself[0m[35m[1m.[0m[1mconverter[0m[35m[1m.[0m[1mconvert[0m[1m([0m[1mpath[0m[1m)[0m
+    [36m         │    │         │       └ [0m[36m[1mWindowsPath('D:/Programs/PythonProjects/SummaryAI-TT/temp/0360300129925000099/ПРИЛОЖЕНИЕ_№_4_Проект_контракта_1.doc')[0m
+    [36m         │    │         └ [0m[36m[1m<function DocumentConverter.convert at 0x000001B86A54B4C0>[0m
+    [36m         │    └ [0m[36m[1m<docling.document_converter.DocumentConverter object at 0x000001B86F10FB60>[0m
+    [36m         └ [0m[36m[1m<PreProcessingDocs.Parser.ParseDocs object at 0x000001B86A4AF4D0>[0m
+
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 40, in wrapper_function
+    return wrapper(*args, **kwargs)
+           │        │       └ {}
+           │        └ (<docling.document_converter.DocumentConverter object at 0x000001B86F10FB60>, WindowsPath('D:/Programs/PythonProjects/Summary...
+           └ <bound method ValidateCallWrapper.__call__ of <pydantic._internal._validate_call.ValidateCallWrapper object at 0x000001B840EA...
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\pydantic\_internal\_validate_call.py", line 137, in __call__
+    res = self.__pydantic_validator__.validate_python(pydantic_core.ArgsKwargs(args, kwargs))
+          │    │                                      │             │          │     └ {}
+          │    │                                      │             │          └ (<docling.document_converter.DocumentConverter object at 0x000001B86F10FB60>, WindowsPath('D:/Programs/PythonProjects/Summary...
+          │    │                                      │             └ <class 'pydantic_core._pydantic_core.ArgsKwargs'>
+          │    │                                      └ <module 'pydantic_core' from 'D:\\Programs\\PythonProjects\\SummaryAI-TT\\.venv\\Lib\\site-packages\\pydantic_core\\__init__....
+          │    └ <member '__pydantic_validator__' of 'ValidateCallWrapper' objects>
+          └ <pydantic._internal._validate_call.ValidateCallWrapper object at 0x000001B840EA61F0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 438, in convert
+    return next(all_res)
+                └ <generator object DocumentConverter.convert_all at 0x000001B86F2BBCC0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 497, in convert_all
+    for conv_res in conv_res_iter:
+                    └ <generator object DocumentConverter._convert at 0x000001B86F6283D0>
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 622, in _convert
+    for item in map(
+  File "D:\Programs\PythonProjects\SummaryAI-TT\.venv\Lib\site-packages\docling\document_converter.py", line 673, in _process_document
+    raise ConversionError(error_message)
+          │               └ 'File format not allowed: D:\\Programs\\PythonProjects\\SummaryAI-TT\\temp\\0360300129925000099\\ПРИЛОЖЕНИЕ_№_4_Проект_контра...
+          └ <class 'docling.exceptions.ConversionError'>
+
+[31m[1mdocling.exceptions.ConversionError[0m:[1m File format not allowed: D:\Programs\PythonProjects\SummaryAI-TT\temp\0360300129925000099\ПРИЛОЖЕНИЕ_№_4_Проект_контракта_1.doc[0m

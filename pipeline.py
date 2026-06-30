@@ -4,7 +4,7 @@ from PreProcessingDocs.Parser import ParseDocs
 from dbs.queries import Queries
 
 from WorkflowAI.route import ask_ai
-from LogConf.log_config import set_logger, get_logger_with_trace
+from LogConf.log_config import set_logger
 
 logger = set_logger()
 

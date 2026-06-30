@@ -37,7 +37,11 @@ class ParseDocs:
             ".xlsx": self._parsing_xlsx,
             ".xls": self._parsing_xlsx,
         }
-        self.supported_files = [".docx", ".doc", ".pdf", ".xlsx", ".xls"]
+        self.supported_files = [
+            ".docx", ".doc", ".pdf", ".xlsx", 
+            ".xls", ".DOCX", ".DOC", ".PDF",
+            ".XLSX", ".XLS" 
+        ]
 
         self.coef_tokens = 2.25
         self.PLACEHOLDER_RE = re.compile(r"^\{.*\}$")

@@ -4,8 +4,8 @@ from typing import Union
 from fastapi import FastAPI
 import uvicorn
 
-from schemas import Documents , Summarization
-from pipeline import pipe, pipe_test_pars
+from schemas import Summarization
+from pipeline import pipe
 
 app = FastAPI()
 
@@ -16,10 +16,6 @@ class GenerateInput(BaseModel):
 async def generate(folder: GenerateInput):
     result = await pipe(folder.folder_name)
     return result
-
-@app.post("/v1/test", response_model=Union[list[Documents], str])
-def generate_test():
-    return pipe_test_pars()
 
 if __name__ == "__main__":
     uvicorn.run(
