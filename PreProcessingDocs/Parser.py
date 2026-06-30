@@ -9,6 +9,9 @@ from openpyxl import load_workbook
 from openpyxl.cell.cell import MergedCell
 
 from schemas import Documents, DocMetadata
+from LogConf.log_config import set_logger
+
+logger = set_logger()
 
 class ParseDocs:
     """
@@ -20,7 +23,6 @@ class ParseDocs:
             - openpyxl: табличные данные
 
         После извлечения информации производится конвертация в структурированный формат(markdown для текстовых данных)
-        
     """
     def __init__(self):
         self.name_home_dir = "temp"
@@ -35,9 +37,12 @@ class ParseDocs:
             ".xlsx": self._parsing_xlsx,
             ".xls": self._parsing_xlsx,
         }
+        self.supported_files = [".docx", ".doc", ".pdf", ".xlsx", ".xls"]
 
         self.coef_tokens = 2.25
         self.PLACEHOLDER_RE = re.compile(r"^\{.*\}$")
+
+        logger.info(f"ParseDocs initialized: temp_dir={self.abs_path}")
     
     def _exist_home_dir(self) -> None:
         """ Создание временной директории """
@@ -62,20 +67,32 @@ class ParseDocs:
 
         dir = self.abs_path / name_dir
         if not dir.is_dir() or not dir.exists():
-            return f"Директория не найдена или не существует: {dir}"
+            message = f"Директория не найдена или не существует: {dir}"
+            logger.exception(f"{message}")
+            return message
 
         files = []
 
         for file in dir.rglob("*"):
-            if file.is_file():
+            if file.is_file() and file.suffix in self.supported_files:
                 files.append(file)
+            else:
+                logger.exception(f"Файл {file} не поддерживается системой")
 
+        if not files:
+            message = f"Файлов в директории {dir} не обнаружено"
+            logger.exception(f"{message}")
+            return message
+        
         return files
 
     def router(self, name_dir: str) -> list[Documents]:
         """ Основной метод маршрутизации для парсинга всех документов в директории """
         parse_content = []
         files = self._detect_files(name_dir)
+
+        if isinstance(files, str):
+            return files
 
         for file in files:
             if not file.is_file():
@@ -86,8 +103,11 @@ class ParseDocs:
                 print(f"Неизвестный формат: {file}")
                 continue
 
-            content = parser(file)
-            parse_content.append(content)
+            try: 
+                content = parser(file)
+                parse_content.append(content)
+            except Exception as e:
+                logger.exception(f"Failed to parse file: {file} | {e}")
 
         return parse_content
 

@@ -2,12 +2,18 @@ from PreProcessingDocs.Chunking import Chunked
 from PreProcessingDocs.Parser import ParseDocs
 
 from WorkflowAI.route import ask_ai
+from LogConf.log_config import set_logger
+
+logger = set_logger()
 
 parse = ParseDocs()
 chunking = Chunked(chunk_size=50_000, max_size_tokens=50_000)
 
 async def pipe(name_dir: str):
     text = parse.router(name_dir)
+
+    if isinstance(text, str):
+        return text
 
     chunks = chunking.markdown_header_chunking(text)
     

@@ -122,8 +122,6 @@ async def extract_node(state: State) -> dict:
         }
     )
 
-    print(from_input_summary_node(merge_extracts(responses)))
-
     return {"extracts": responses}
 
 async def summary_node(state: State) -> dict:

@@ -18,7 +18,6 @@ DATABASE_URL = (
     f"{name_db}"
 )
 
-
 engine = create_engine(
     url=DATABASE_URL
 )

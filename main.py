@@ -1,22 +1,23 @@
 from pydantic import BaseModel
+from typing import Union
+
 from fastapi import FastAPI
 import uvicorn
 
-from schemas import Documents, Extract, Summarization
+from schemas import Documents , Summarization
 from pipeline import pipe, pipe_test_pars
-from WorkflowAI.route import ask_ai
 
 app = FastAPI()
 
 class GenerateInput(BaseModel):
     folder_name: str
 
-@app.post("/v1/generate", response_model=Summarization)
+@app.post("/v1/generate", response_model=Union[Summarization, str])
 async def generate(folder: GenerateInput):
     result = await pipe(folder.folder_name)
     return result
 
-@app.post("/v1/test", response_model=list[Documents])
+@app.post("/v1/test", response_model=Union[list[Documents], str])
 def generate_test():
     return pipe_test_pars()
 
