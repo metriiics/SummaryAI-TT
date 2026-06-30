@@ -16,7 +16,7 @@ def set_logger():
         colorize=True,
         backtrace=True, 
         diagnose=True,
-        format="<blue>{time:DD-MM-YYYY HH:mm:ss}</blue> | {level} | {message}",
+        format="<blue>{time:DD-MM-YYYY HH:mm:ss}</blue> | {level} | <cyan>{extra[trace_id]}</cyan> | {message}",
     )
 
     logger.add(

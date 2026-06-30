@@ -88,6 +88,7 @@ class ParseDocs:
 
     def router(self, name_dir: str) -> list[Documents]:
         """ Основной метод маршрутизации для парсинга всех документов в директории """
+        logger.info(f"Start route parsing")
         parse_content = []
         files = self._detect_files(name_dir)
 

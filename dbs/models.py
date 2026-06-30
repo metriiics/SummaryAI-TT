@@ -1,4 +1,4 @@
-from sqlalchemy import Integer, UUID, BIGINT, String, TEXT, TIMESTAMP
+from sqlalchemy import Integer, UUID, BIGINT, String, TEXT, TIMESTAMP, Boolean
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.dialects.postgresql import JSONB
 
@@ -12,7 +12,8 @@ class SummaryGen(Base):
 
     id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
-        primary_key=True
+        primary_key=True,
+        nullable=False
     )
     procedure_id: Mapped[int] = mapped_column(
         BIGINT,
@@ -23,8 +24,8 @@ class SummaryGen(Base):
         nullable=False
     )
 
-    status: Mapped[str] = mapped_column(
-        String(20),
+    status: Mapped[bool] = mapped_column(
+        Boolean,
         nullable=False
     )
 
@@ -34,11 +35,12 @@ class SummaryGen(Base):
     )
     core_info: Mapped[dict] = mapped_column(
         JSONB,
-        nullable=False
+        nullable=True
     )
 
     trace_id: Mapped[str] = mapped_column(
-        String(255)
+        String(255),
+        nullable=True
     )
 
     created_at: Mapped[datetime] = mapped_column(
