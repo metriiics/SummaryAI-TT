@@ -14,3 +14,6 @@
 [31m[1mNoneType[0m:[1m None[0m
 [34m30-06-2026 18:01:23[0m | ERROR | Файлов в директории D:\Programs\PythonProjects\SummaryAI-TT\temp\pgg не обнаружено
 [31m[1mNoneType[0m:[1m None[0m
+[34m30-06-2026 18:22:57[0m | INFO | ParseDocs initialized: temp_dir=D:\Programs\PythonProjects\SummaryAI-TT\temp
+[34m30-06-2026 18:27:24[0m | INFO | ParseDocs initialized: temp_dir=D:\Programs\PythonProjects\SummaryAI-TT\temp
+[34m30-06-2026 18:30:56[0m | INFO | ParseDocs initialized: temp_dir=D:\Programs\PythonProjects\SummaryAI-TT\temp

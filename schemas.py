@@ -150,9 +150,8 @@ class ExtractorInput(BaseModel):
 class Summarization(BaseModel):
     core_info: CoreInfo
 
-    summary: str = Field(description="саммари")
-    resource: list[str] = Field(description="Источники")
-
+    summary: str 
+    
 class State(BaseModel):
     docs: list[Documents] 
     extracts: Optional[list[Extract]] = None
