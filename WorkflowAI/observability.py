@@ -11,8 +11,9 @@ langfuse = Langfuse(
     secret_key=os.getenv("LANGFUSE_SECRET_KEY"),
     host=os.getenv("LANGFUSE_BASE_URL")
 ) 
-
-predefined_trace_id = langfuse.create_trace_id()
+def get_trace_id():
+    predefined_trace_id = langfuse.create_trace_id()
+    return predefined_trace_id
 
 async def create_score_tracing(score: ScoresTracing):
     langfuse.create_score(

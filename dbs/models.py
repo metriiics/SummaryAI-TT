@@ -35,12 +35,13 @@ class SummaryGen(Base):
     )
     core_info: Mapped[dict] = mapped_column(
         JSONB,
-        nullable=True
+        nullable=True,
     )
 
     trace_id: Mapped[str] = mapped_column(
         String(255),
-        nullable=True
+        nullable=True,
+        unique=True
     )
 
     created_at: Mapped[datetime] = mapped_column(
