@@ -1,3 +1,5 @@
+from WorkflowAI.observability import langfuse
+
 extract_system_prompt = """
 <goal>
 Вы — экспертная система по извлечению структурированной информации из закупочной документации.
@@ -112,3 +114,17 @@ summarization_system_prompt = """
 «Предметом закупки являются строительные работы. Исполнитель должен обладать действующей лицензией на строительство (№123 от 01.01.2024, выдана ООО "Стройка") (Документ.docx, Технические маркеры). Техническим заданием предусмотрено использование бетона марки М300 (Документ.docx, Технические данные). Все работы должны быть завершены в течение 30 календарных дней с даты подписания договора (правилы.pdf, п. 4.5).»
 </integration_guide>
 """
+
+## Загоняем все системные промпты в langfuse:
+
+langfuse.create_prompt(
+    name="Extractor Node System Prompt",
+    prompt=extract_system_prompt,
+    labels=["mvp"]
+)
+
+langfuse.create_prompt(
+    name="Summarization Node System Prompt",
+    prompt=summarization_system_prompt,
+    labels=["mvp"]
+)

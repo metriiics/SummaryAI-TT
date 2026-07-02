@@ -1,8 +1,9 @@
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.runnables import RunnableConfig
 
 from schemas import Extract, Summarization, State, Documents, ExtractorInput, MergedExtract, MergedExtractField
-from WorkflowAI.prompts import extract_system_prompt, summarization_system_prompt
+from WorkflowAI.observability import langfuse
 
 import base64
 
@@ -26,6 +27,15 @@ llm = ChatOpenAI(
 
 extract_structured_llm = llm.with_structured_output(Extract)
 summ_structured_llm = llm.with_structured_output(Summarization)
+
+extract_system_prompt = langfuse.get_prompt(
+    "Extractor Node System Prompt",
+    label="latest"
+).get_langchain_prompt()
+summarization_system_prompt = langfuse.get_prompt(
+    "Summarization Node System Prompt",
+    label="latest"
+).get_langchain_prompt()
 
 def form_input_extract_node(docs: list[Documents]) -> list[ExtractorInput]:
     """ Функция формирует бачи для передачи в экстрактор """
@@ -105,9 +115,14 @@ def from_input_summary_node(merge_extract: MergedExtract) -> str:
 
     return content
 
-async def extract_node(state: State) -> dict:
+async def extract_node(state: State, config: RunnableConfig) -> dict:
     """ Нода, извлекающая ключевую информацию """
     contents = form_input_extract_node(state.docs)
+
+    cfg = {
+        **config,
+        "max_concurrency": 10
+    }
 
     responses = await extract_structured_llm.abatch(
         [
@@ -117,14 +132,12 @@ async def extract_node(state: State) -> dict:
             ]
             for item in contents
         ],
-        config={
-            "max_concurrency": 10
-        }
+        config=cfg
     )
 
     return {"extracts": responses}
 
-async def summary_node(state: State) -> dict:
+async def summary_node(state: State, config=RunnableConfig) -> dict:
     """ Нода, осуществляющая суммаризацию после отработки извлечения """
     
     merged = merge_extracts(state.extracts)
@@ -134,7 +147,8 @@ async def summary_node(state: State) -> dict:
         [
             SystemMessage(content=summarization_system_prompt),
             HumanMessage(content=contents)
-        ]
+        ],
+        config=config
     )       
 
     return {"summarization": response}

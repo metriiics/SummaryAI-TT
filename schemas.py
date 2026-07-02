@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Optional
+from typing import Optional, Literal
 
 class ChunkingMetadata(BaseModel):
     length_char: int
@@ -156,3 +156,8 @@ class State(BaseModel):
     docs: list[Documents] 
     extracts: Optional[list[Extract]] = None
     summarization: Optional[Summarization] = None
+
+class ScoresTracing(BaseModel):
+    trace_id: str
+    value: Literal[0, 1]
+    comment: Optional[str] = None

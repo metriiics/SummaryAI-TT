@@ -4,7 +4,8 @@ from typing import Union
 from fastapi import FastAPI
 import uvicorn
 
-from schemas import Summarization
+from schemas import Summarization, ScoresTracing
+from WorkflowAI.observability import create_score_tracing
 from pipeline import pipe
 
 app = FastAPI()
@@ -16,6 +17,11 @@ class GenerateInput(BaseModel):
 async def generate(folder: GenerateInput):
     result = await pipe(folder.folder_name)
     return result
+
+@app.post("/v1/scoring")
+async def generate(score: ScoresTracing):
+    await create_score_tracing(score)
+    return {"status": "ok"}
 
 if __name__ == "__main__":
     uvicorn.run(
